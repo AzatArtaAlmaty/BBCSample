@@ -12,4 +12,10 @@ public class MainController {
     public String main() {
         return "Hello";
     }
+
+    @GetMapping("/end")
+    @ResponseBody
+    public String finish() {
+        return "Finish";
+    }
 }

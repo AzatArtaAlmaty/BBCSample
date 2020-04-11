@@ -1,6 +1,6 @@
 package com.news.demo.RestController;
 
-import com.news.demo.dto.NewsDto;
+import com.news.demo.dto.NewsDTO;
 import com.news.demo.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ public class NewsRestCont {
     private NewsService newsService;
 
     @PostMapping("/create")
-    public UUID create(@RequestBody NewsDto dto){
+    public UUID create(@RequestBody NewsDTO dto){
         return newsService.create(dto);
     }
 }
