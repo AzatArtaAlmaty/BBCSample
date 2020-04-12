@@ -16,7 +16,6 @@ public class Users {
     private String name;
     private String picture;
     private String email;
-    private String gender;
     private String locale;
     private LocalDateTime lastVisit;
 
