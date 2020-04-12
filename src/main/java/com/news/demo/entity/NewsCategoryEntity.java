@@ -18,8 +18,11 @@ public class NewsCategoryEntity {
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     private UUID newsCategoryId;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "newsId")
-    private List<NewsEntity> news;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "categoryId")
-    private List<CategoryEntity> category;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "newsId")
+    private NewsEntity news;
+
+    @JoinColumn(name = "categoryId")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CategoryEntity category;
 }

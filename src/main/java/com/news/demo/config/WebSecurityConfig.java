@@ -21,7 +21,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .anyRequest().authenticated();
+                .antMatchers( "/login**", "/js**", "/error**").permitAll()
+                .anyRequest().authenticated()
+            .and()
+                .logout().logoutSuccessUrl("/").permitAll();
             //.and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
     }
 
@@ -33,7 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             Users user = userDetailsRepo.findById(id).orElseGet(() -> {
                 Users newUser = new Users();
 
-                newUser.setId(id);
+                newUser.setUserId(id);
                 newUser.setName( (String) map.get("name"));
                 newUser.setEmail( (String) map.get("email"));
                 newUser.setLocale( (String) map.get("locale"));

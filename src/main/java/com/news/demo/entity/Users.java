@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Data
 public class Users {
     @Id
-    private String id;
+    private String userId;
     private String name;
     private String picture;
     private String email;
